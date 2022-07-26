@@ -7,6 +7,7 @@ import  {MatBottomSheetModule,} from '@angular/material/bottom-sheet';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { PromptComponent } from '../prompt/prompt.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [PromptComponent],
@@ -17,9 +18,10 @@ import {MatIconModule} from '@angular/material/icon';
     MatListModule,
     MatBottomSheetModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
 
-  exports:[MatSnackBarModule,ReactiveFormsModule,MatListModule,MatBottomSheetModule,MatToolbarModule,MatIconModule]
+  exports:[MatButtonModule,MatSnackBarModule,ReactiveFormsModule,MatListModule,MatBottomSheetModule,MatToolbarModule,MatIconModule]
 })
 export class MaterialModule { }
