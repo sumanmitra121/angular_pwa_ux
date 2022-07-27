@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiServiceService } from '../service/api-service.service';
 
@@ -13,15 +13,16 @@ import { ApiServiceService } from '../service/api-service.service';
 export class LoginComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-
+   _Id:any;
   _check_response:any;
   constructor(private _snackBar: MatSnackBar,private _service:ApiServiceService,private fb:FormBuilder,private router:Router,private spinner:NgxSpinnerService) { }
   logForm!:FormGroup;
   ngOnInit(): void {
+
+    this._Id =localStorage.getItem('_route');
     this.logForm = this.fb.group({
       email:['',[Validators.required,Validators.email]],
       password:['',Validators.required]
-
     })
   }
   submit(){

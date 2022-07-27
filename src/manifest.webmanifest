@@ -3,9 +3,9 @@
   "short_name": "Pwa",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
-  "display": "minimal-UI",
-  "scope": "./",
-  "start_url": "/",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/dist/angular-pwa/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",

@@ -10,15 +10,20 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ApiServiceService } from './service/api-service.service';
 import { OverlayModule } from "@angular/cdk/overlay";
+
 import { MatBottomSheet, MAT_BOTTOM_SHEET_DATA, MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { MaterialModule } from './material/material.module';
+import { LoginComponent } from './login/login.component';
 const initializer = (pwaService: ApiServiceService) => () => pwaService.initPwaPrompt();
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     OverlayModule,
+    MaterialModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -27,8 +32,10 @@ const initializer = (pwaService: ApiServiceService) => () => pwaService.initPwaP
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     })
+
   ],
   providers: [
+      {provide: LocationStrategy, useClass: HashLocationStrategy},
       { provide: MatBottomSheet },
       { provide: MAT_BOTTOM_SHEET_DATA, useValue: {} },
       {provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
