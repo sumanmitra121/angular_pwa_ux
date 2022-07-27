@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { MainComponent } from '../main/main.component';
 
 
 const routes: Routes = [
-  {path:'',component:LoginComponent}
+  {path:'',component:MainComponent},
+  {path:'login/:id',component:LoginComponent}
 ];
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    MainComponent
   ],
   imports: [
     CommonModule,
@@ -20,4 +22,10 @@ const routes: Routes = [
   ],
   exports:[RouterModule]
 })
-export class LoginModule { }
+export class LoginModule {
+  constructor(){
+    console.log('loaded');
+
+  }
+
+ }
