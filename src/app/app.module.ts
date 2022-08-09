@@ -14,10 +14,10 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { MatBottomSheet, MAT_BOTTOM_SHEET_DATA, MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { MaterialModule } from './material/material.module';
-import { LoginComponent } from './login/login.component';
+
 const initializer = (pwaService: ApiServiceService) => () => pwaService.initPwaPrompt();
 @NgModule({
-  declarations: [AppComponent,LoginComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

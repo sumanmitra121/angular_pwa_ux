@@ -33,7 +33,8 @@
     {
       "name": "todos",
       "urls": [
-        "https://vermapi.opentech4u.co.in/*"
+        "https://vermapi.opentech4u.co.in/*",
+        "https://nodejsangular2022.herokuapp.com/*"
       ],
       "cacheConfig": {
         "maxSize": 5,

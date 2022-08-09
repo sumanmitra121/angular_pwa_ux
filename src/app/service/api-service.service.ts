@@ -6,7 +6,7 @@ import { timer } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { PromptComponent } from '../prompt/prompt.component';
-
+const SERVER_URL = 'https://nodejsangular2022.herokuapp.com/sendNotification'
 @Injectable({
   providedIn: 'any'
 })
@@ -47,4 +47,11 @@ export class ApiServiceService {
       .pipe(take(1))
       .subscribe(() => this.bottomSheet.open(PromptComponent, { data: { mobileType, promptEvent: this.promptEvent } }));
   }
+
+  public sendSubscriptionToTheServer(subscription: PushSubscription) {
+    console.log('sss');
+
+    return this.http.post(SERVER_URL, subscription)
+  }
+
 }
